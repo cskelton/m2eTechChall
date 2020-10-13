@@ -1,0 +1,70 @@
+<div class="container-fluid vertical-center">
+  <div class="card text-center">
+    <div class="card-header">
+      <div class="btn-group btn-group-lg d-flex" role="group" aria-label="Form Type">
+        <button type="button" class="btn" [ngClass]="{'btn-primary': selectedForm === 'signUp', 'btn-secondary': selectedForm === 'logIn'}" (click)="toggleForm('signUp')">Sign Up</button>
+        <button type="button" class="btn" [ngClass]="{'btn-primary': selectedForm === 'logIn', 'btn-secondary': selectedForm === 'signUp'}" (click)="toggleForm('logIn')">Log In</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div *ngIf="selectedForm === 'signUp'">
+        <p class="card-text">Sign Up for Free</p>
+        <form [formGroup]="signUpForm">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" id="firstName" required>
+                <app-field-error-display
+                  [displayError]="isFieldValid('firstName')"
+                  errorMsg="First Name is Required">
+                </app-field-error-display>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" id="lastName" required>
+                <app-field-error-display
+                  [displayError]="isFieldValid('lastName')"
+                  errorMsg="Last Name is Required">
+                </app-field-error-display>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <input type="email" class="form-control" formControlName="emailAddress" placeholder="Email Address" id="emailAddress" required>
+                <app-field-error-display
+                  [displayError]="isFieldValid('emailAddress')"
+                  errorMsg="A Valid Email Address is Required">
+                </app-field-error-display>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <input type="password" class="form-control" formControlName="password" placeholder="Set A Password" id="password" required>
+                <app-field-error-display
+                  [displayError]="isFieldValid('emailAddress')"
+                  errorMsg="Password is Required">
+                </app-field-error-display>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div *ngIf="selectedForm === 'logIn'">
+        <p class="card-text">Welcome Back!</p>
+        <form [formGroup]="logInForm">
+          <div class="form-group">
+            <input type="email" class="form-control" formControlName="emailAddress" placeholder="Email Address" id="logInEmailAddress" required>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" formControlName="password" placeholder="Password" id="logInPassword" required>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button *ngIf="selectedForm === 'signUp'" [disabled]="signUpForm.invalid" type="button" class="btn btn-primary btn-lg btn-block submit-btn" (click)="submitForm('signUp')">GET STARTED</button>
+      <button *ngIf="selectedForm === 'logIn'" [disabled]="logInForm.invalid" type="button" class="btn btn-primary btn-lg btn-block submit-btn" (click)="submitForm('logIn')">LOG IN</button>
+    </div>
+  </div>
+</div>

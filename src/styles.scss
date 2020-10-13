@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+$theme-colors: (
+  "primary": #1ab188,
+  "secondary": #43525a
+);
+
+$body-bg: #b4b2b0;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+html * {
+  font-family: 'Roboto', SansSerif !important;
+}

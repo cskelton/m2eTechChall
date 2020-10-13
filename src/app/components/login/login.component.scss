@@ -1,0 +1,80 @@
+.vertical-center {
+  min-height: 100%; // Browser Support Fallback
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  background-color: #24323d;
+  color: #fff;
+  width: 100%;
+}
+
+.card-header {
+  background-color: #24323d;
+  border-bottom: none;
+}
+
+.card-footer {
+  background-color: #24323d;
+  border-top: none;
+}
+
+.form-control {
+  background-color: #24323d;
+  color: #fff;
+  border-radius: 0px;
+}
+
+.form-control:after {
+  content: ' *';
+  color: #1ab188;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #abb3ac;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  content: " *";
+  color: #abb3ac;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #abb3ac;
+}
+
+.btn {
+  border-radius: 0px;
+}
+
+.btn-secondary {
+  color: #abb3ac;
+}
+
+.submit-btn {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+p {
+  font-size: 40px;
+  font-weight: 200;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #1ab188;
+}
+
+.ng-touched:not(form).ng-invalid:not(form)  {
+  border: 1px solid #a94442;
+}
+
+:host {
+  display: block;
+}
+.fade {
+  opacity: 0;
+}
